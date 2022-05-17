@@ -18,6 +18,6 @@
   display: flex;
 }
 
-.list_item:first-child {
-  margin-right: 10px;
+.list_item:not(:first-child) {
+  margin-left: 10px;
 }
