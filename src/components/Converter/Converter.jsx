@@ -1,10 +1,28 @@
 import { useState, useEffect } from 'react';
 import fetchCurrency from '../../services/api';
-import style from './Converter.module.css'
+import style from './Converter.module.css';
 import CurrencyRow from '../CurrencyRow/CurrencyRow';
-import Header from '../Header/Header'
+import Header from '../Header/Header';
+import uah_logo from '../../images/uah_logo.svg';
+import usd_logo from '../../images/usd_logo.svg';
+import eur_logo from '../../images/eur_logo.svg';
 
-const options = ['usd', 'uah', 'eur'];
+// const options = ['usd', 'uah', 'eur'];
+
+const options = [
+    {
+        currency: 'usd',
+        logo: usd_logo,
+    },
+    {
+        currency: 'uah',
+        logo: uah_logo,
+    },
+    {
+        currency: 'eur',
+        logo: eur_logo,
+    },
+];
 
 const Converter = () => {
   const [USD, setUSD] = useState(0);
@@ -34,8 +52,8 @@ const Converter = () => {
   };
   
   useEffect(() => {
-   setFromCurrency(options[0]);
-    setToCurrency(options[0]);
+   setFromCurrency(options[0].currency);
+    setToCurrency(options[0].currency);
     
       getCurrencyRate('usd').then((res) => setUSD(res.usd.uah));
       getCurrencyRate('eur').then((res) => setEUR(res.eur.uah));
@@ -67,7 +85,7 @@ const Converter = () => {
 
   return (
       <>
-          <Header usd={USD} eur={EUR} />
+          <Header usd={USD} eur={EUR} options={currencyOptions} />
           <div className={style.wrapper}>
               <CurrencyRow
                   options={currencyOptions}

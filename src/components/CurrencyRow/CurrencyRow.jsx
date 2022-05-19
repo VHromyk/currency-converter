@@ -10,10 +10,23 @@ const CurrencyRow = ({
   
   return (
       <div className={style.wrapper}>
-      <input type="number" value={amount} onChange={onChangeAmount} className={style.input}/>
-          <select className={style.select} value={selectedCurrency} onChange={onChangeCurrency}>
-              {options.map((option) => (
-                  <option key={option} value={option}>{option.toUpperCase()}</option>
+          <input
+              type="number"
+              value={amount}
+              onChange={onChangeAmount}
+              className={style.input}
+          />
+          <select
+              className={style.select}
+              value={selectedCurrency}
+              onChange={onChangeCurrency}
+          >
+              {options.map(({ currency, logo }) => (
+                  <option
+                      key={currency}
+                      value={currency}>
+                      <span>{currency.toUpperCase()}</span>
+                  </option>
               ))}
           </select>
       </div>
