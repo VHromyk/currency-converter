@@ -1,14 +1,9 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json&cc=USD';
-
-
-
-const fetchCurrency = async () => {
+const fetchCurrency = async (currency) => {
 try {
-  const currencyList = await axios.get(BASE_URL).then((res) => res.data);
+  return await axios.get(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`).then((res) => res.data);
 
-  return currencyList;
 } catch (error) {
   console.error(error.message)
 }

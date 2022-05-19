@@ -1,0 +1,28 @@
+
+.field {
+  margin-top: 20px;
+}
+
+.select {
+  margin-left: 10px;
+}
+
+.input_section {
+  margin-top: 30px;
+}
+
+.select {
+  margin-left: 10px;
+  border-radius: 5px;
+  padding: 5px;
+
+}
+
+.input {
+  width: 270px;
+  height: 40px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 22px;
+}
